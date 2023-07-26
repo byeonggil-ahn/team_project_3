@@ -1,0 +1,132 @@
+.iteminfo_wrapper {
+    display: flex;
+    justify-content: center;
+}
+.iteminfo_imgbox {
+    display: flex;
+    flex-direction: column;
+}
+.product_mainimg {
+    width: 400px;
+    height: 400px;
+}
+
+.iteminfo_textbox {
+    width: 400px;
+    height: 400px;
+
+}
+.iteminfo_textbox h1 {
+    height: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+.iteminfo_textbox h3,
+.iteminfo_textbox h4 {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    max-width: 100%; /* 수정된 부분 */
+}
+
+.iteminfo_textbox h3 {
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.iteminfo_textbox .product_content > p {
+    height: 150px;
+    overflow-y: scroll;
+    padding-left: 10px;
+    border: 1px lightgrey solid;
+    border-radius: 5px;
+}
+
+.iteminfo_textbox p {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+.stock_and_button {
+    display: flex;
+    margin: 0px auto;
+    padding: calc((70px - 30px) / 2) 0;
+    width: 300px;
+    justify-content: space-evenly;
+    lien-height: 40px;
+
+}
+.stock_and_button input {
+    width: 50px;
+}
+.stock_and_button button {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    width: 100px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+
+.qnacontainer1 {
+    margin-bottom: 50px;
+}
+
+.qnatable {
+    border-collapse: collapse;
+}
+
+.qnachild_wrapper {
+    display: flex;
+    margin: 100px auto;
+    align-items: center;
+    justify-content:space-between;
+    width: 800px;
+}
+
+.qnachild1 {
+    text-align: initial;
+}
+
+.qnachild1>p {
+        text-align: initial;
+}
+
+.qnachild1>b {
+    font-size: 1.3rem;
+}
+
+.qnachild2 {
+    width: 200px;
+    border: 1px solid red;
+    color: red;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.qnatable {
+    margin: 0 auto;
+}
+
+.qnatable th,
+.qnatable td {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+.qnatable th {
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.qnatable td {
+    border-bottom: solid 1px gray;
+    opacity: .3;
+}

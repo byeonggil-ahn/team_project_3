@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.perfume01.dao.ProductCategoryStateDAO">
+
+    <resultMap id="productCategoryStateResultMap" type="com.example.perfume01.dto.ProductCategoryStateDTO">
+        <id property="tagNo" column="tag_no"/>
+        <result property="productCnt" column="product_cnt"/>
+        <result property="sellAvg" column="sell_avg"/>
+        <result property="sellMax" column="sell_max"/>
+        <result property="priceAvg" column="price_avg"/>
+        <result property="priceMax" column="price_max"/>
+        <result property="priceMin" column="price_min"/>
+    </resultMap>
+
+    <select id="list" resultMap="productCategoryStateResultMap">
+        SELECT *
+        FROM product_category_state
+    </select>
+
+</mapper>

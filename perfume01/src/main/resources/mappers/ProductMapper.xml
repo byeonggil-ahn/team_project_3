@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.ProductManageMapper">
+    <!-- Mybatis 사용시 인터페이스, 패키지, 클래스명 일치시킬것 -->
+
+    <!-- 상품 SELECT 절 -->
+    <select id="selectList" resultType="com.example.perfume01.dto.ProductDTO">
+        SELECT * FROM product p JOIN product_tag pt ON p.product_no = pt.product_no
+    </select>
+
+    <select id="selectOne" resultType="com.example.perfume01.dto.ProductDTO">
+        SELECT * FROM product p JOIN product_tag pt ON p.product_no = pt.product_no WHERE p.product_no=#{product_no}
+    </select>
+
+    <!-- 상품 재고 불러오기 -->
+    <select id="selectStock" resultType="int">
+        SELECT product_stock FROM product
+        WHERE product_no=#{product_no}
+    </select>
+
+    <!-- 상품 수정 -->
+    <update id="edit" parameterType="com.example.perfume01.dto.ProductDTO">
+        UPDATE product
+        SET
+        <trim suffixOverrides=",">
+            <if test="product_no != null">product_no = #{product_no},</if>
+            <if test="product_name != null">product_name = #{product_name},</if>
+            <if test="product_brand != null">product_brand = #{product_brand},</if>
+            <if test="product_price != null">product_price = #{product_price},</if>
+            <if test="product_stock != null">product_stock = #{product_stock},</if>
+            <if test="product_content != null">product_content = #{product_content},</if>
+            <if test="product_delivery_price != null">product_delivery_price = #{product_delivery_price},</if>
+            <if test="product_sellcount != null">product_sellcount = #{product_sellcount},</if>
+            <if test="product_regdate != null">product_regdate = #{product_regdate},</if>
+            <if test="product_mainimg != null">product_mainimg = #{product_mainimg},</if>
+            <if test="product_subimg != null">product_subimg = #{product_subimg}</if>
+        </trim>
+        WHERE product_no = #{product_no}
+    </update>
+    <!--
+    <insert id="insertProduct" parameterType="com.example.perfume01.dto.ProductDTO">
+        INSERT INTO product (product_name, product_brand, tag_no, product_price, product_stock, product_delivery_price, product_sellcount, product_regdate, product_mainimg, product_subimg, product_content)
+        VALUES (
+        <trim suffixOverrides=",">
+            <if test="product_name != null">#{product_name},</if>
+            <if test="product_brand != null">#{product_brand},</if>
+            <if test="tag_no != null">#{tag_no},</if>
+            <if test="product_price != null">#{product_price},</if>
+            <if test="product_stock != null">#{product_stock},</if>
+            <if test="product_delivery_price != null">#{product_delivery_price},</if>
+            <if test="product_sellcount != null">#{product_sellcount},</if>
+            <if test="product_regdate != null">#{product_regdate},</if>
+            <if test="product_mainimg != null">#{product_mainimg},</if>
+            <if test="product_subimg != null">#{product_subimg},</if>
+            <if test="product_content != null">#{product_content}</if>
+        </trim>
+        )
+    </insert>
+    -->
+
+    <insert id="insertProduct">
+        INSERT INTO product (product_name, product_brand, product_price, product_stock, product_content, product_delivery_price, product_sellcount, product_regdate, product_mainimg, product_subimg)
+        VALUES (#{product_name},#{product_brand},#{product_price},#{product_stock},#{product_content},#{product_delivery_price},#{product_sellcount}, #{product_regdate},#{product_mainimg},#{product_subimg})
+    </insert>
+
+    <!-- 상품 삭제 -->
+    <!-- 채크된 상품 삭제 -->
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM product WHERE product_no=#{product_no}
+    </delete>
+
+    <!-- 개별 항목 상품 삭제 -->
+    <delete id="deleteEachProduct">
+        DELETE FROM product WHERE product_no=#{product_no}
+    </delete>
+
+
+
+    <!-- 수정 후 코드 -->
+    <sql id="search">
+        <if test="keyword != null">
+            <bind name="keyVal" value="'%' + keyword + '%'"/>
+        </if>
+
+        <choose>
+            <when test="searchType != null and searchType != 'all'">
+                <if test="searchType == 'product_name'">
+                    AND product_name LIKE #{keyVal}
+                </if>
+                <if test="searchType == 'product_no'">
+                    AND product_no LIKE #{keyVal}
+                </if>
+                <if test="searchType == 'product_brand'">
+                    AND product_brand LIKE #{keyVal}
+                </if>
+            </when>
+            <otherwise>
+
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.example.perfume01.dto.ProductDTO">
+        SELECT *
+        FROM product
+        <where>
+             <include refid="search"></include>
+        </where>
+        ORDER BY product_no ASC
+        LIMIT #{sno}, #{rowsPerPage}
+    </select>
+
+
+
+    <select id="searchTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM product
+        <where>
+              <include refid="search"></include>
+        </where>
+    </select>
+
+</mapper>

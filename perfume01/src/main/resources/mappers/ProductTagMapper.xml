@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.ProductTagMapper">
+    <!-- Mybatis 사용시 인터페이스, 패키지, 클래스명 일치시킬것 -->
+    <insert id="insertTag">
+        INSERT INTO product_tag VALUES
+           ( #{product_no},
+            #{tag_no} )
+    </insert>
+
+
+    <update id="editTag">
+        UPDATE product_tag SET tag_no=#{tag_no} WHERE product_no=#{product_no}
+    </update>
+
+    <delete id="deleteTag">
+        DELETE FROM product_tag WHERE product_no=#{product_no}
+    </delete>
+
+    <select id="selectOne" resultType="com.example.perfume01.dto.ProductDTO">
+        SELECT * FROM product_tag WHERE product_no=#{product_no}
+    </select>
+
+    <select id="select">
+        SELECT * FROM proeuct_tag
+    </select>
+
+</mapper>

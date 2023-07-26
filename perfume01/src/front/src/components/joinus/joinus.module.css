@@ -1,0 +1,102 @@
+/* joinus 페이지 css (start) */
+
+section .main {
+    margin: 100px;
+    text-align: center;
+}
+
+.join_us {
+    width: 170px;
+    margin: 30px auto;
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+}
+
+.main form {
+    margin: auto;
+    padding: 30px;
+    width: 1000px;
+}
+
+.main table {
+    margin: 50px auto;
+}
+
+.main tr {
+    width: 100px;
+    line-height: 40px;
+
+}
+
+.main td {
+    padding: 0 40px;
+    text-align: left;
+}
+
+tr .joinusInputTd {
+    display: flex;
+}
+
+.birth select {
+    margin-right: 10px;
+}
+
+.email {
+    margin-right: 10px;
+}
+
+.userPhone input {
+    width: 220px;
+}
+
+section .main div {
+    margin: 15px 0;
+}
+
+.main input {
+    line-height: 20px;
+}
+
+
+.userId button {
+    /* font-size: 15px; */
+    font-size: var(--font-small);
+    width: 80px;
+    line-height: 25px;
+    margin-left: 10px;
+    background-color: var(--color-grey);
+    border-radius: 10%;
+    color: var(--color-white);
+
+}
+
+section .main p {
+    margin-bottom: 50px;
+}
+
+.terms a {
+    text-decoration: underline;
+    color: var(--color-dark-white);
+}
+
+.under_terms {
+    margin-top: 10px;
+}
+
+.injoy_btn {
+    margin-top: 30px;
+    width: 200px;
+    height: 45px;
+    border-radius: 3px;
+    background-color: var(--color-black);
+    border: none;
+    font-size: var(--font-regular);
+    color: white;
+}
+
+.injoy_btn>a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* joinus 페이지 css (end) */

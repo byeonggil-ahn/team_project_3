@@ -1,0 +1,113 @@
+.paymentContainer {
+    width: 80%;
+    margin: 100px auto;
+}
+
+.paymentContainer hr {
+    width: 70%;
+    margin: auto;
+}
+
+.paymentText {
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+    width: 300px;
+    margin: auto;
+}
+
+.paymentCustomerContainer,
+.ordersItemTable,
+.totalPriceContainer {
+    margin : 100px auto;
+}
+
+.paymentCustomer_h2,
+.ordersItemTable_h2,
+.totalPriceContainer_h2 {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.paymentCustomer_h2>h2,
+.ordersItemTable_h2>h2,
+.totalPriceContainer_h2>h2 {
+    text-align: left;
+}
+
+.paymentCustomer_h2>p,
+.ordersItemTable_h2>p {
+    color: red;
+    font-size: var(--font-small);
+    text-align: left;
+}
+
+.paymentCustomer dd {
+    text-align: left;
+    padding: 10px 0 10px 10px;
+}
+
+.paymentCustomer dd:nth-of-type(5) {
+    color: red;
+    padding: 0 0 0 20px;
+    font-size: var(--font-micro);
+}
+
+.totalPrice {
+    width: 80%;
+    line-height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.totalPriceArea,
+.paymentCustomerArea {
+    width: 80%;
+    border-radius: 3px;
+    margin: auto;
+    background-color: var(--color-light-white);
+}
+
+.paymentCustomerArea {
+    height: 200px;
+}
+
+.totalPriceArea {
+    height: 200px;
+}
+
+.totalPrice,
+.pointBox {
+    height: 80px;
+}
+
+.pointPrice {
+    padding-top: 20px;
+}
+
+.pointBtnBox {
+    margin-top: 10px;
+}
+
+.pointBtn {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    width: 50px;
+    height: 25px;
+    border-radius: 3px;
+    font-size : var(--font-small);
+    margin-left: 10px;
+}
+
+
+.kakaopayBtn {
+    margin-top: 100px;
+    width: 200px;
+    height: 45px;
+    border-radius: 3px;
+    background-color: var(--color-black);
+    border: none;
+    font-size: var(--font-regular);
+    color: white;
+}

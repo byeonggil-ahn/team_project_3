@@ -1,0 +1,59 @@
+/* footer */
+
+#footer {
+    background-color: #d2d2d2;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 100px;
+}
+
+#footer .footer_about>div>h3,
+#footer .footer_about>div>p,
+#footer .footer_information>h3,
+#footer .footer_information>p,
+#footer .footer_instagram>h3,
+#footer .footer_instagram>li {
+    text-align: left;
+}
+
+.ptag>p {
+    margin: 0;
+}
+
+.footer_about_anker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+.footer_about_anker a {
+    padding: 5px 0;
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+.footer_information>h3,
+.footer_instagram>h3 {
+    padding: 0 0 15px 0;
+}
+
+.footer_about_anker a:hover {
+    transform: scale(1.1);
+}
+
+.footer_information p {
+    padding: 10px 0;
+}
+
+.footer_information p:last-child {
+    font-size: var(--font-regular);
+}
+
+
+.footer_instagram_img {
+    display: grid;
+    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    padding: 0;
+}

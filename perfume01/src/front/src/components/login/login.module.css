@@ -1,0 +1,119 @@
+/* login 페이지 css (start) */
+
+.main_container div>a {
+    text-decoration: none;
+    display: block;
+
+}
+
+.login_container {
+    width: 500px;
+    height: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+input {
+    outline: none;
+}
+
+/* 로그인 로고 */
+.login {
+    width: 140px;
+    margin: 30px auto;
+    margin-bottom: 60px;
+    text-align: center;
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+}
+
+
+
+/* id칸 */
+.login_id {
+    width: 300px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.member_id {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1.5px solid #000000;
+    text-align: left;
+}
+
+/* psw칸 */
+.login_pw {
+    width: 300px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.member_pw {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1.5px solid #000000;
+    text-align: left;
+}
+
+
+/* 로그인엔터 */
+
+.login_enter {
+    margin-top: 30px;
+}
+
+.login_login {
+    width: 100%;
+    height: 45px;
+    margin: 0 auto;
+    border-radius: 3px;
+    background-color: var(--color-black);
+    font-size: 17px;
+    line-height: 45px;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.login_enter>a {
+    color: var(--color-white);
+}
+
+/* 찾기,회원가입 */
+.login_middle {
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* 찾기 */
+.find {
+    float: left;
+    margin-top: 15px;
+    font-size: var(--font-small);
+    color: var(--color-black);
+}
+
+/* 회원가입 */
+.join {
+    float: right;
+    margin-top: 15px;
+    font-size: var(--font-small);
+    color: var(--color-black);
+}
+
+/* 다른로그인 이미지 */
+.login_container img {
+    width: 35px;
+    margin: 40px 5px;
+}
+
+
+/* login 페이지 css (end) */

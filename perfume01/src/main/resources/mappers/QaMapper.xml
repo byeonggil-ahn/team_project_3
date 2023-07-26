@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.QaMapper">
+
+    <select id="selectList" resultType="com.example.perfume01.dto.QaDTO">
+        SELECT q.qa_no, q.member_id, q.qa_title, q.qa_content, q.qa_answer, q.qa_head, q.qa_secret, q.qa_regdate FROM qa q JOIN member m ON q.member_id = m.member_id
+    </select>
+
+</mapper>

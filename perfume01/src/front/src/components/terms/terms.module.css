@@ -1,0 +1,41 @@
+/* 전체 컨테이너 */
+.container{
+    width: 80%;
+    margin: 100px auto;
+}
+
+hr {
+    margin: 60px 0;
+}
+
+.logo_container {
+    text-align: center;
+}
+
+
+/* 약관 부분 전체 컨테이너 */
+.main_container{
+    border: 1px solid;
+}
+
+/* 약관 부분 컨테이너 */
+
+.term_name {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.term_list{
+    padding: 20px 30px;
+}
+
+.term_list p{
+    white-space: pre-line;
+    word-break: keep-all;
+    text-align: justify;
+}
+
+.term_list>h2{
+    text-align: left;
+    padding: 70px 0 20px 0;
+}

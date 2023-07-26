@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.CartMapper">
+
+    <!-- 장바구니에 저장(insert) -->
+    <insert id="cartInsert" parameterType="com.example.perfume01.dto.CartDTO">
+        INSERT INTO cart(member_id, product_no, product_count)
+        VALUES (#{member_id}, #{product_no}, #{product_count})
+    </insert>
+
+    <!-- 장바구니에 있는 상품인지 확인 -->
+    <select id="selectOne" resultType="com.example.perfume01.dto.CartDTO">
+        SELECT * FROM cart
+        WHERE member_id=#{member_id} AND product_no=#{product_no}
+    </select>
+
+    <!-- 장바구니 조회 (list)-->
+    <select id="cartList" resultType="com.example.perfume01.dto.CartDTO">
+        SELECT cart.member_id, p.product_no, p.product_brand, p.product_name, p.product_price
+             , p.product_stock, cart.product_count, p.product_mainimg
+        FROM cart as cart JOIN
+            product as p
+        where
+            cart.product_no = p.product_no
+        AND
+            cart.member_id = #{member_id}
+    </select>
+
+
+    <!-- 장바구니 상품 갯수 변경 -->
+    <update id="cartChangeCount" parameterType="com.example.perfume01.dto.CartDTO">
+        UPDATE cart SET product_count=#{product_count}
+        WHERE member_id=#{member_id} AND product_no=#{product_no}
+    </update>
+
+    <!-- 장바구니 상품 삭제 -->
+    <delete id="cartDeleteItem">
+        DELETE FROM cart WHERE member_id=#{member_id} AND product_no=#{product_no}
+    </delete>
+
+    <!-- 주문후 카트 삭제 -->
+    <delete id="cartDeleteAll">
+        DELETE cart WHERE member_id=#{member_id},
+    </delete>
+
+    <!-- 장바구니 총 상품 갯수 (아마도 고쳐야 할 것임) -->
+    <select id="cartCnt" resultType="int">
+        SELECT count(*) FROM cart WHERE member_id=#{member_id}
+    </select>
+
+ <!--   <select id="cartInfoList" resultType="com.example.perfume01.dto.CartProductInfoDTO">
+        SELECT m.member_id, p.product_no, p.product_brand, p.product_name, p.product_price
+             , p.product_stock, op.product_count, p.product_mainimg
+        FROM member m, product p, orders_payment op where m.member_id = #{member_id}
+    </select>-->
+
+</mapper>

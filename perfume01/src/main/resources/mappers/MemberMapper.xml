@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.MemberMapper">
+
+    <!-- SELECT 절 쿼리문 -->
+    <select id="selectList" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM member
+    </select>
+
+    <select id="selectOne" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM member WHERE member_id=#{member_id}
+    </select>
+
+    <select id="selectUser" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM member WHERE member_id=#{loginID}
+    </select>
+
+    <!-- 내정보 보기 -->
+    <select id="myinfo" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM member WHERE member_id=#{member_id}
+    </select>
+
+
+    <!-- 회원가입용 insert 절 -->
+    <insert id="minsert">
+        INSERT INTO member
+        VALUES (#{member_id}, #{member_name}, #{member_nick}, #{member_pw}, #{member_phone}, #{member_email}, #{member_post}, #{member_basic_addr}, #{member_detail_addr}, now(), '일반회원', 1000)
+    </insert>
+
+    <!-- 회원 정보 수정 UPDATE -->
+    <update id="mupdate">
+        UPDATE member SET
+            <if test="member_pw != null">
+                member_pw=#{member_pw}
+            </if>
+            <if test="member_pw == null">
+                member_nick=#{member_nick}, member_phone=#{member_phone}, member_email=#{member_email}, member_post=#{member_post},
+                member_basic_addr=#{member_basic_addr}, member_detail_addr=#{member_detail_addr}, member_role=#{member_role}, member_point=#{member_point}
+            </if>
+            WHERE member_id=#{member_id}
+    </update>
+
+    <!-- 회원 정보 삭제 -->
+    <delete id="mdelete">
+        DELETE FROM member WHERE member_id=#{member_id}
+    </delete>
+
+    <!-- 회원 검색 첫번쨰방법  이거랑 아래거 낼 전부 수정해서 검색되게 해둘 것-->
+    <sql id="search">
+        <if test="keyword!=null">
+            <bind name="keyVal" value="'%'+keyword+'%'"/>
+        </if>
+
+        <choose>
+            <when test="searchType!=null and searchType!='all'">
+                and ${searchType} Like #{keyVal} )
+            </when>
+            <otherwise> ) </otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM member
+        WHERE ( member_id != 'admin' <include refid="search"></include>
+        order by member_id asc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        SELECT count(*) FROM member
+        WHERE ( member_id != 'admin' <include refid="search"></include>
+    </select>
+
+    <!-- 회원의 포인트만 업데이트 -->
+    <update id="pointupdate">
+        UPDATE member SET member_point=#{member_point}
+        WHERE member_id=#{member_id}
+    </update>
+
+    <!-- 회원검색 두번째방법 -->
+    <!--
+    <select id="searchMember" resultType="com.example.perfume01.vo.MemberVO">
+        SELECT * FROM (
+            SELECT TMP.*, ROWNUM RN FROM (
+                SELECT * FROM member
+                WHERE instr(${member_id}, #{keyword}) > 0
+                ORDER BY member_join ASC
+                ) TMP
+            ) WHERE RN BETWEEN #{begin} AND #{end}
+    </select>
+    -->
+
+    <!-- 이메일로 아이디 찾기 -->
+    <select id="findId">
+        SELECT member_id FROM member
+        WHERE member_email=${member_email}
+    </select>
+
+    <!-- 아래 비밀번호 변경문들은 스프링 시큐리티 사용시 사용하기 힘듬-->
+
+    <!-- 아이디와 이메일로 비밀번호 찾기 -->
+    <select id="findPw">
+        SELECT member_pw FROM member
+        WHERE member_id=${member_id} AND member_email=${member_email}
+    </select>
+
+    <!-- 비밀번호 변경 -->
+    <update id="changePassword">
+        UPDATE member SET member_pw=${member_pw}
+        WHERE member_id=${member_id}
+    </update>
+
+    <!-- 비밀번호를 제외한 정보 변경 -->
+    <update id="changeInfo">
+        UPDATE member SET
+        <if test="member_pw != null">
+            member_pw=#{member_pw}
+        </if>
+        <if test="member_pw == null">
+            member_nick=#{member_nick}, member_phone=#{member_phone}, member_email=#{member_email}, member_post=#{member_post},
+            member_basic_addr=#{member_basic_addr}, member_detail_addr=#{member_detail_addr}, member_role='일반회원', member_point=#{member_point}
+        </if>
+        WHERE member_id=#{member_id}
+    </update>
+
+    <!-- 회원 탈퇴 -->
+    <delete id="delete">
+        DELETE member WHERE member_id=${member_id}
+    </delete>
+
+
+    <!-- ========================= 메일로 비번 변경관련 (동작이 이상하면 삭제하던지 주석처리) ==================================== -->
+
+    <!-- 회원가입시 이메일 인증을 위한 랜덤번호 저장 -->
+    <update id="updateMailKey" parameterType="com.example.perfume01.vo.MemberVO">
+        UPDATE member SET mail_key${mail_key} WHERE member_email=#{member_email}
+        AND member_id=#{member_id}
+    </update>
+
+    <!-- 이메일로 인증을 하면 DB에 mail_auth 컬럼의 기본값을 0에서 1로 변경 -->
+    <update id="updateMailAuth" parameterType="com.example.perfume01.vo.MemberVO">
+        UPDATE member SET mail_auth=1 WHERE member_email=#{member_email}
+        AND mail_key=#{mail_key}
+    </update>
+
+    <!--
+    로그인시 인증을 했나 안했나를 채크
+    만일 여기서 0이 리턴되면 이메일 인증후에 다시 로그인 해달라는 경고창을 띄워줌
+    -->
+    <select id="emailAuthFail" parameterType="String" resultType="int">
+        SELECT count(*) FROM member
+        WHERE member_id=#{member_id} AND mail_auth=1
+    </select>
+
+</mapper>
+<!-- Mybatis 사용시 인터페이스, 패키지, 클래스명 일치시킬것 -->
+

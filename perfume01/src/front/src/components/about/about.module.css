@@ -1,0 +1,77 @@
+/* about페이지 css (start)*/
+
+#about {
+    /* width: 90%; */
+    margin: auto;
+    padding: 50px;
+}
+
+.about__container {
+    opacity: 0;
+    transition: all 500ms ease-in;
+}
+
+.p__story {
+    font-size: var(--font-medium);
+}
+
+.h2__story {
+    font-size: calc(var(--font-medium)*1.2);
+}
+
+.about__img {
+    padding: 20px 0 50px 0;
+}
+
+.about__img img {
+    width: 90%;
+    height: 400px;
+}
+
+.eco__p {
+    padding: 10px 0;
+}
+
+.divider {
+    width: 10%;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+
+.pop {
+    margin-top: 250px;
+}
+
+.about__eco {
+    width: 70%;
+    background-color: var(--color-light-white);
+    color: var(--color-light-grey);
+    margin: 20px auto;
+    padding: 10px 20px;
+}
+
+.eco__title {
+    color: var(--color-black);
+}
+
+.eco__description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.eco {
+    margin-bottom: 32px;
+}
+
+.eco__bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--clolor-light-grey);
+}
+
+.eco__value {
+    height: 3px;
+    background-color: var(--color-orange);
+}
+
+/* about 페이지 css (end)*/

@@ -1,0 +1,37 @@
+.orderImg {
+    width: 150px;
+    height: 150px;
+}
+
+.orderTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+.orderTable>tr,
+.orderTable>tr>td {
+    border: 1px solid var(--clolor-light-grey);
+}
+
+.orderInfo {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    height: 40px;
+}
+
+.orderTableInfo {
+    width: 70%;
+}
+
+.orderTablePrice {
+    width: 20%;
+}
+
+.orderTableCount {
+    width: 10%;
+}
+
+.orderImgTd {
+    width: 20%;
+}

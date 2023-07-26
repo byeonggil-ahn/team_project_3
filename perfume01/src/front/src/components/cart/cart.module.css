@@ -1,0 +1,118 @@
+/* cart 페이지 css */
+
+.cart_allcontainer {
+    margin: 50px auto;
+    width: 80%;
+}
+
+.cartText {
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 100px
+}
+
+.cart_table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.cart_table_thead {
+    margin: 0 auto;
+    background-color: var(--color-black);
+    height: 40px;
+    color: var(--color-white);
+}
+
+.cart_table tr,
+.cart_table td {
+    border: 1px solid var(--clolor-light-grey);
+}
+
+
+.productName,
+.productPrice {
+    color: #000000;
+}
+
+.productImg {
+    width: 100px;
+    height: 100px;
+}
+
+.deleteBtn {
+    text-decoration: underline;
+    color: var(--color-dark-white);
+}
+
+.cartTableBtn {
+    width: 130px;
+    line-height: 40px;
+    background-color: #000000;
+    border-radius: 3px;
+    color: var(--color-white);
+    font-size : var(--font-small);
+    margin-top: 50px;
+}
+
+.cartHr {
+    width: 80%;
+    margin: 80px auto;
+}
+
+.cart_bottomcontainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px;
+}
+
+.cart_box {
+    background-color: #eeeeee;
+    width: 300px;
+    line-height: 50px;
+    border-radius: 3px;
+    margin: 30px;
+
+}
+
+.cart_bottomleft_container p,
+.cart_bottomrightcontainer p {
+    width: 280px;
+    margin: 10px auto;
+}
+
+.cart_bottom_textarea {
+    width: 300px;
+    height: 80px;
+    margin-top: 30px;
+}
+
+.cart_bottomrightcontainer ul {
+    height: 200px;
+    padding: 10px;
+}
+
+.cart_bottomrightcontainer ul li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.pointP {
+    color: red;
+    font-size: var(--font-micro);
+}
+
+.cart_payment {
+    background-color: #000000;
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size : var(--font-regular);
+}

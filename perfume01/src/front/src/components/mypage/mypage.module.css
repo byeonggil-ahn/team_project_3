@@ -1,0 +1,113 @@
+/* mypage 페이지 css  (start) */
+.myPage_container {
+    width: 80%;
+    margin: 100px auto;
+}
+.myPageText {
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+    width: 200px;
+    margin: auto;
+}
+.myPage_container hr {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+/* 내 프로필 */
+.profileArea {
+    width: 100%;
+    margin: 80px 0;
+}
+.profile {
+    width: 70%;
+    margin: auto;
+    padding: 40px 0 30px 0;
+    background-color: var(--color-light-white);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.member_info {
+    width: 500px;
+    font-size: var(--font-small);
+}
+
+.member_info li {
+    padding-bottom: 20px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+.member_info li:nth-child(6) {
+    padding-top: 10px;
+    justify-content: end;
+}
+.member_info li>p:nth-child(1) {
+    font-weight: bold;
+}
+.member_info li:nth-of-type(1) {
+    font-size: var(--font-medium);
+    text-align: center;
+}
+.member_info span {
+    text-decoration: underline;
+    color: var(--clolor-light-grey);
+    cursor: pointer;
+}
+/* 주문상품내역, 배송조회 */
+.order_check_all {
+    width: 100%;
+}
+.order table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.order h2 {
+    margin-bottom: 20px;
+}
+.mypageTd,
+.mypageTr {
+    border: 1px solid var(--clolor-light-grey);
+    width: 200px;
+    height: 150px;
+}
+.order th:nth-of-type(1),
+.order td:nth-of-type(1) {
+    width: 25%;
+}
+.order th:nth-of-type(2),
+.order td:nth-of-type(2) {
+    width: 35%;
+}
+.order th:nth-of-type(3),
+.order td:nth-of-type(3) {
+    width: 15%;
+}
+.order th:nth-of-type(4),
+.order td:nth-of-type(4) {
+    width: 15%;
+}
+.order_info th {
+    height: 40px;
+    border: 1px solid var(--clolor-light-grey);
+    color: var(--color-white);
+}
+.delivery span {
+    text-decoration: underline;
+    color: var(--clolor-light-grey);
+    cursor: pointer;
+}
+.order_info {
+    background-color: var(--color-black);
+    border: 1px solid var(--clolor-light-grey);
+}
+.order_main img {
+    background-position: center;
+    background-size: cover;
+    width: 150px;
+    height: 100px;
+}
+/* mypage 페이지 css  (end) */

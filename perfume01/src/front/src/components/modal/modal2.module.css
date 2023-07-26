@@ -1,0 +1,134 @@
+:root {
+    /* color */
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink: #e19cb0;
+    --color-black: #4d4d4d;
+    --color-dark-grey: #4d4d4d;
+    --color-grey: #616161;
+    --clolor-light-grey: #7c7979;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+
+    /* font-size */
+    /*48*/
+    --font-large: 3rem;
+    /*28*/
+    --font-medium: 1.75rem;
+    /*18*/
+    --font-regular: 1.125rem;
+    /*16*/
+    --font-small: 1rem;
+    /*14*/
+    --font-micro: 0.075rem;
+
+    /* font-weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+    /* animation */
+    ---animation-duration-short: 200ms;
+    --animation-duration: 300ms;
+    --animation-duration-long: 400ms;
+
+    /* radious */
+    --regular-border-radius: 15px;
+    --small-size-border-radius: 4px;
+
+    /* padding */
+    --padding-side: 0px 50px;
+}
+
+/* Universal tags */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open sans', sans-serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link,
+a:visited {
+    color: black;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    /* cursor: pointer; */
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+/* Typography */
+h1 {
+    font-size: var(--font-large);
+}
+
+h2 {
+    font-size: var(--font-medium);
+}
+
+h3 {
+    font-size: var(--font-small);
+    margin: 0 0 10px 0;
+}
+
+p {
+    font-size: var(--font-small);
+}
+
+
+
+/* main */
+
+.delivery_container {
+    height: 100vh;
+    margin: auto;
+}
+
+.delivery_container h2 {
+    margin:auto;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    font-size: var(--font-medium);
+    border-bottom: 2px solid;
+    width: 150px;
+    height: 50px;
+}
+
+.delivery_container .btn {
+    background-color: #000000;
+    color: var(--color-white);
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    border-radius: var(--small-size-border-radius);
+}

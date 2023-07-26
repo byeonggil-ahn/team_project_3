@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.OrderMapper">
+
+    <!-- 주문 생성 -->
+    <!-- order_no 는 AUTO INCREMENT로 자동생성 되니까 뺴놓으면 된다. -->
+    <insert id="insertOrder">
+        INSERT INTO orders (order_receiver, order_receive_phone, order_post, order_basic_addr, order_detail_addr,
+                           order_receiver_phone, order_request, order_userPoint, member_id, order_state, order_regdate)
+        VALUES (#{order_recever}, #{order_receive_phone}, #{order_post}, #{order_basic_addr}, #{order_detail_addr},
+                #{order_receiver_phone}, #{order_requset}, #{order_userPoint}, #{member_id}, '결제완료', sysdate)
+    </insert>
+
+    <!-- 주문 조회 -->
+    <select id="selectList">
+        SELECT * FROM orders WHERE member_id=#{member_id}
+    </select>
+
+    <!-- 주문목록 상세조회 -->
+    <select id="selectOne">
+        SELECT * FROM orders WHERE order_no=#{order_no}
+    </select>
+
+    <!-- 주문번호 불러오기 -->
+    <!-- 아마 수정할 필요성이 많을 것으로 생각됨 -->
+    <select id="selectOrderNo">
+        SELECT order_no FROM
+            (SELECT order_no FROM orders WHERE member_id=#{member_id} ORDER BY order_no DESC) AS
+                subtable LIMIT 1
+    </select>
+
+    <!-- 상품 총액(포인트계산 완료) 만 저장하는 코드 -->
+    <insert id="payment">
+        INSERT INTO orders_payment (product_no, member_id, product_count, product_price)
+        VALUES (#{product_no}, #{member_id}, #{product_count}, #{product_price})
+    </insert>
+</mapper>

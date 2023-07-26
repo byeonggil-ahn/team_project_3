@@ -1,0 +1,80 @@
+.edit_member {
+    width: 80%;
+    margin: 100px auto;
+}
+
+.memberUpdateText {
+    font-size: var(--font-large);
+    border-bottom: 2px solid;
+    width: 300px;
+    margin: auto;
+}
+
+.memberUpdateTable {
+    width: 60%;
+    margin: 60px auto;
+}
+
+.memberUpdateTable>table {
+    margin: auto;
+}
+
+.memberUpdateTable tr {
+    width: 100%;
+}
+
+.nick,
+.tel,
+.email,
+.post,
+.point {
+    line-height: 40px;
+}
+
+.basic_post,
+.detail_post {
+    line-height: 20px;
+}
+
+
+.memberUpdateTable th {
+    text-align: left;
+    width: 150px;
+}
+
+.memberUpdateTable td {
+    text-align: left;
+    width: 250px;
+}
+
+.post_btn {
+    font-size: var(--font-small);
+    width: 50px;
+    line-height: 25px;
+    margin-left: 10px;
+    background-color: var(--color-grey);
+    border-radius: 10%;
+    color: var(--color-white);
+}
+
+
+
+.memberUpdateTable .post_p {
+    font-size: var(--font-micro);
+    width: 200px;
+    height: 20px;
+    margin: 0;
+    display: inline-block;
+}
+
+.saveBtn {
+    width: 200px;
+    height: 45px;
+    border-radius: 3px;
+    background-color: var(--color-black);
+    border: none;
+    font-size: var(--font-regular);
+    color: white;
+}
+
+
